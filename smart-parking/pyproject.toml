@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "smart-parking"
+version = "0.1.0"
+description = "Smart Parking Reservation & Predictive Capacity Management System"
+authors = ["Admin <admin@example.com>"]
+packages = [
+    { include = "apps" },
+    { include = "packages" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.0"}
+sqlalchemy = "^2.0.35"
+asyncpg = "^0.30.0"
+alembic = "^1.13.2"
+xgboost = "^2.1.1"
+scikit-learn = "^1.5.2"
+pandas = "^2.2.3"
+pydantic = "^2.9.2"
+pydantic-settings = "^2.5.2"
+razorpay = "^1.4.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-asyncio = "^0.24.0"
+ruff = "^0.6.7"
+basedpyright = "^1.17.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

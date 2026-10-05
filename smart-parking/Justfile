@@ -1,0 +1,18 @@
+up:
+    docker compose up -d postgres
+
+down:
+    docker compose down -v
+
+dev:
+    poetry run fastapi dev apps/api/main.py
+
+test:
+    poetry run pytest tests/ -v
+
+lint:
+    poetry run ruff check .
+    poetry run basedpyright .
+
+migrate:
+    poetry run alembic upgrade head
